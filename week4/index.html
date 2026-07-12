@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <style>
+            input[type=text] {
+                background-color: rgb(5, 103, 136);
+                width: 1200px;
+                color: rgb(46, 46, 131);
+                padding: 10px;
+            }
+            input[type=number] {
+                background-color: rgb(153, 17, 38);
+                width: 1200px;
+                color:red;
+                padding: 10px;
+            }
+            input[type=button] {
+                background-color: yellow;
+                width: 120px;
+                color: black ;
+                padding: 10px;
+            }
+            </style>
+    </head>
+    <body bgcolor="lightpink">
+        <form>
+            NAME <input type="text" placeholder="Enter your name"><br>
+            OCCUPATION <input type="text" placeholder="Enter your occupation"><br>
+            AMOUNT <input type="number" placeholder="Enter your amount" 
+            id="A"><br>
+            INTEREST <input type="number" placeholder="Enter your interest" 
+            id="I"><br>
+            TENURE <input type="number" placeholder="Enter your tenure" 
+            id="T"><br>
+            <input type="button" value="Calculate EMI" onclick="calculate()">
+        </form>
+        <p id="result"></p>
+        <script>
+            function calculate()
+            {
+            var amount = document.getElementById("A").value;
+            var interest = document.getElementById("I").value;
+            var tenure = document.getElementById("T").value;
+            var roi = interest / 12 *100;
+            var months = tenure * 12;
+            var emi = (amount * roi * Math.pow(1 + roi, months)) / (Math.pow(1 + roi, months) - 1);
+            document.getElementById("result").innerHTML = "Your EMI is: " + emi.toFixed(2);
+        }
+        
+        </script>
+    </body><br>
+    <br><p align="right">P.BHAVISHYA<br>
+                         24881A1247<br>
+    </p>
+</html>

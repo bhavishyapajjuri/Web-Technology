@@ -1,0 +1,58 @@
+<html>
+    <body bgcolor="lightblue" align="center">
+        <form>
+        <h1>Email Registration</h1>
+        <input type="text" id="one" placeholder="Username"><br>
+        <input type="email" id="two" placeholder="Email"><br>
+        <input type="number" id="three" placeholder="Mobile"><br>
+        <br>
+        <input type="submit" onclick="return validate()">
+        </form>
+    <script>
+        function validate()
+        {
+        var un=document.getElementById("one");
+        var em=document.getElementById("two");
+        var m=document.getElementById("three");
+        var uname=un.value;
+        var email=em.value;
+        var mobile=m.value;
+        var unre=/^[a-zA-Z]+[0-9a-zA-Z._]*$/;
+        var ere=/^[a-zA-Z]+([\._]?\w+)*@\w+([\._]?\w+)*(\.\w{2,3})+$/;
+        var mre=/^[6-9][0-9]{9}$/;
+        if (unre.test(uname))
+        {
+            if(ere.test(email))
+        {
+            if(mre.test(mobile))
+        {
+            alert("Register Successfully.");
+            return true;
+        }
+        else
+        {
+            return error(m);
+        }
+        }
+        else{
+           return error(em); 
+        }
+        }
+        else{
+            return error(un);
+        }
+        }
+        function error(ele)
+        {
+            alert("Invalid");
+            ele.style.border="3px solid red";
+            ele.value="";
+            ele.placehold="Invalid";
+            ele.focus();
+            return false;
+        }
+    </script>
+    <p align="right">P.Bhavishya</p>
+    <p align="right">24881A1247</p>
+    </body>
+</html>
